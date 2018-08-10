@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import {toggleTodo, VisibilityFilters} from "../actions";
 
 export class TodoList extends React.Component {
-  
+
   render() {
     console.log("Rendering todo list", this.props.todos);
     return (
