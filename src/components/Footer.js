@@ -1,17 +1,17 @@
 import React from 'react'
-import {VisibilityFilters} from '../actions'
 import {FilterButtonContainer} from "./FilterButton";
+import {Filter} from "../actions/filterActions";
 
 const Footer = () => (
   <div>
     <span>Show: </span>
-    <FilterButtonContainer filter={VisibilityFilters.SHOW_ALL}>
+    <FilterButtonContainer filter={Filter.SHOW_ALL}>
       All
     </FilterButtonContainer>
-    <FilterButtonContainer filter={VisibilityFilters.SHOW_ACTIVE}>
+    <FilterButtonContainer filter={Filter.SHOW_ACTIVE}>
       Active
     </FilterButtonContainer>
-    <FilterButtonContainer filter={VisibilityFilters.SHOW_COMPLETED}>
+    <FilterButtonContainer filter={Filter.SHOW_COMPLETED}>
       Completed
     </FilterButtonContainer>
   </div>

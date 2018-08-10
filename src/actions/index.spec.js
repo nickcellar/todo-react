@@ -1,8 +1,8 @@
-import * as actions from './index'
+import * as actions from './todoActions'
 
 describe('todo actions', () => {
-  it('addTodo should create ADD_TODO action', () => {
-    expect(actions.addTodo('Use Redux')).toEqual({
+  it('addTodoAction should create ADD_TODO action', () => {
+    expect(actions.addTodoAction('Use Redux')).toEqual({
       type: 'ADD_TODO',
       id: 0,
       text: 'Use Redux'
@@ -16,8 +16,8 @@ describe('todo actions', () => {
     })
   });
 
-  it('toggleTodo should create TOGGLE_TODO action', () => {
-    expect(actions.toggleTodo(1)).toEqual({
+  it('toggleTodoAction should create TOGGLE_TODO action', () => {
+    expect(actions.toggleTodoAction(1)).toEqual({
       type: 'TOGGLE_TODO',
       id: 1
     })

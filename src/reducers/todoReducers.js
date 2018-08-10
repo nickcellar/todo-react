@@ -1,7 +1,12 @@
-const todos = (state = [], action) => {
+import {ACTION_ADD_TODO, ACTION_TOGGLE_TODO} from "../actions/todoActions";
+
+export const todoReducers = (state = [], action) => {
+
   let newState;
+
   switch (action.type) {
-    case 'ADD_TODO':
+
+    case ACTION_ADD_TODO:
       console.log("Adding todo");
       console.log("> action", action);
       console.log("> state", state);
@@ -12,7 +17,8 @@ const todos = (state = [], action) => {
       }];
       console.log("> newState", newState);
       return newState;
-    case 'TOGGLE_TODO':
+
+    case ACTION_TOGGLE_TODO:
       console.log("Toggling todo");
       console.log("> action", action);
       console.log("> state", state);
@@ -23,9 +29,11 @@ const todos = (state = [], action) => {
       );
       console.log("> newState", newState);
       return newState;
+
     default:
+      console.debug("Getting initial todo");
+      console.debug("> action", action);
+      console.debug("> state", state);
       return state
   }
 };
-
-export default todos

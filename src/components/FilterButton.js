@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {setVisibilityFilter} from "../actions";
 import {connect} from "react-redux";
+import {setFilter} from "../actions/filterActions";
 
 export class FilterButton extends React.Component {
 
@@ -24,11 +24,11 @@ FilterButton.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  active: ownProps.filter === state.visibilityFilter
+  active: ownProps.filter === state.filter
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  onClick: () => dispatch(setVisibilityFilter(ownProps.filter))
+  onClick: () => dispatch(setFilter(ownProps.filter))
 });
 
 export const FilterButtonContainer = connect(

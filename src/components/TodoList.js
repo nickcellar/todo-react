@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Todo from './Todo'
 import {connect} from "react-redux";
-import {toggleTodo, VisibilityFilters} from "../actions";
+import {toggleTodoAction} from "../actions/todoActions";
+import {Filter} from "../actions/filterActions";
 
 export class TodoList extends React.Component {
 
@@ -13,8 +14,8 @@ export class TodoList extends React.Component {
         {this.props.todos.map(todo =>
           <Todo
             key={todo.id}
-            {...todo}
             onClick={() => this.props.toggleTodo(todo.id)}
+            {...todo}
           />
         )}
       </ul>
@@ -34,23 +35,26 @@ TodoList.propTypes = {
 const getVisibleTodos = (todos, filter) => {
   console.log("getVisibleTodos", filter, todos);
   switch (filter) {
-    case VisibilityFilters.SHOW_ALL:
+    case Filter.SHOW_ALL:
       return todos;
-    case VisibilityFilters.SHOW_COMPLETED:
-      return todos.filter(t => t.completed);
-    case VisibilityFilters.SHOW_ACTIVE:
-      return todos.filter(t => !t.completed);
+    case Filter.SHOW_COMPLETED:
+      return todos.filter(todo => todo.completed);
+    case Filter.SHOW_ACTIVE:
+      return todos.filter(todo => !todo.completed);
     default:
       throw new Error('Unknown filter: ' + filter)
   }
 };
 
-const mapStateToProps = state => ({
-  todos: getVisibleTodos(state.todos, state.visibilityFilter)
-});
+const mapStateToProps = state => {
+  console.log(state);
+  return ({
+    todos: getVisibleTodos(state.todos, state.filter)
+  })
+};
 
 const mapDispatchToProps = dispatch => ({
-  toggleTodo: id => dispatch(toggleTodo(id))
+  toggleTodo: id => dispatch(toggleTodoAction(id))
 });
 
 export const TodoListContainer = connect(

@@ -1,5 +1,5 @@
 import React from "react"
-import {addTodo} from "../actions";
+import {addTodoAction} from "../actions/todoActions";
 import {connect} from "react-redux";
 
 export class AddTodo extends React.Component {
@@ -25,7 +25,7 @@ export class AddTodo extends React.Component {
     if (!this.input.value.trim()) {
       return
     }
-    this.props.dispatch(addTodo(this.input.value));
+    this.props.dispatch(addTodoAction(this.input.value));
     this.input.value = '';
   }
 }
