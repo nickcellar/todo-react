@@ -1,12 +1,12 @@
 import React from "react"
 import {addTodo} from "../actions";
+import {connect} from "react-redux";
 
-export default class AddTodo extends React.Component {
+export class AddTodo extends React.Component {
 
   constructor(props) {
     super(props);
     this.input = undefined;
-    this.dispatch = props.dispatch;
   }
 
   render() {
@@ -25,7 +25,9 @@ export default class AddTodo extends React.Component {
     if (!this.input.value.trim()) {
       return
     }
-    this.dispatch(addTodo(this.input.value));
+    this.props.dispatch(addTodo(this.input.value));
     this.input.value = '';
   }
 }
+
+export const AddTodoContainer = connect()(AddTodo);

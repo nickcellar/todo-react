@@ -1,7 +1,7 @@
 import React from 'react'
 import Footer from './Footer'
-import AddTodoContainer from "../containers/AddTodoContainer";
-import VisibleTodoListContainer from "../containers/VisibleTodoListContainer";
+import {AddTodoContainer} from "./AddTodo";
+import {TodoListContainer} from "./TodoList";
 
 export default class App extends React.Component {
 
@@ -9,7 +9,7 @@ export default class App extends React.Component {
     return (
       <div>
         <AddTodoContainer/>
-        <VisibleTodoListContainer/>
+        <TodoListContainer/>
         <Footer/>
       </div>
     )
