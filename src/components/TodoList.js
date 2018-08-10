@@ -33,7 +33,6 @@ TodoList.propTypes = {
 };
 
 const getVisibleTodos = (todos, filter) => {
-  console.log("getVisibleTodos", filter, todos);
   switch (filter) {
     case Filter.SHOW_ALL:
       return todos;
@@ -47,7 +46,6 @@ const getVisibleTodos = (todos, filter) => {
 };
 
 const mapStateToProps = state => {
-  console.log(state);
   return ({
     todos: getVisibleTodos(state.todos, state.filter)
   })

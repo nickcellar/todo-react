@@ -18,6 +18,7 @@ export class FilterButton extends React.Component {
 }
 
 FilterButton.propTypes = {
+  filter: PropTypes.string,
   active: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func.isRequired
@@ -28,7 +29,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  onClick: () => dispatch(setFilter(ownProps.filter))
+  onClick: () => dispatch(setFilter(ownProps.filter)) // from UI
 });
 
 export const FilterButtonContainer = connect(
